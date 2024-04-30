@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const apiClient = axios.create({
-    baseURL: 'https://some-domain.com/api/',
-    timeout: 1000,
-    headers: { 'X-Custom-Header': 'foobar' }
+    baseURL: 'http://localhost:1337/api',
+    headers: {
+        'Content-Type': 'application/json'
+    }
 });
