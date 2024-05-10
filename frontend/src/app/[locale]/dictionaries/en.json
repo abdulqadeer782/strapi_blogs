@@ -1,0 +1,32 @@
+{
+    "header": {
+        "heading": "Vice News",
+        "buttonText": "Submit an Article"
+    },
+    "cover": {
+        "title": "Add to Cart",
+        "buttonText": "Technology",
+        "description": "Microsoft 365, the subscription-based version of Microsoft's familiar Office app package that includes programs like Word and PowerPoint, is getting a very 21st-century power boost, Microsoft announced. It's bolting its own AI chatbot system Copilot into the subscriber package for many customers."
+    },
+    "footer": {
+        "copyRight": "©2024 Vice News. All rights reserved.",
+        "title": "Interesting Stories | Updates | Guides",
+        "description": "Subscribe to learn about new technology and updates. Join over 5000+ members community to stay up to date with latest news.",
+        "buttonText": "Submit",
+        "inputPlaceholder": "Input your email"
+    },
+    "login": {
+        "title": "Login",
+        "emailLabel": "Email",
+        "emailPlaceholder": "name@company.com",
+        "passwordLabel": "Password",
+        "buttonText": "Sign In",
+        "helperText": "Don’t have an account yet?",
+        "signUpText": "Signup",
+        "rememberMe": "Remember me",
+        "forgotPass": "Forgot Password?"
+    },
+    "featuredPost": "Featured Posts",
+    "recentPost": "Recent Posts",
+    "viewAll": "view all"
+}

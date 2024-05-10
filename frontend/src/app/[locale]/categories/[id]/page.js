@@ -1,18 +1,20 @@
 "use client"
 import Categories from "@/src/components/Blog/Categories";
 import { apiClient } from "@/src/utils/apiClient";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 
 
 
 const CategoryPage = ({ }) => {
-    const { id } = useParams();
+    const { id } = useParams(); const pathname = usePathname()
+    const [translation, setTranslation] = useState({})
+
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        apiClient.get('categories').then((res) => {
+        apiClient.get(`categories?locale=${pathname.split('/')[1]}`).then((res) => {
             if (res.data) setCategories(res.data?.data)
         }).catch((err) => console.log('errrrrrr', err))
 
@@ -30,15 +32,15 @@ const CategoryPage = ({ }) => {
           Discover more categories and expand your knowledge!
         </span>
       </div> */}
-            <Categories categories={categories || []} currentSlug={id} />
+            <Categories categories={categories || []} currentSlug={id} pathname={pathname} />
 
-            {/* <div className="grid  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 grid-rows-2 gap-16 mt-5 sm:mt-10 md:mt-24 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32">
-                {blogs.map((blog, index) => (
+            <div className="grid  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 grid-rows-2 gap-16 mt-5 sm:mt-10 md:mt-24 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32">
+                {/* {blogs.map((blog, index) => (
                     <article key={index} className="col-span-1 row-span-1 relative">
                         <BlogLayoutThree blog={blog} />
                     </article>
-                ))}
-            </div> */}
+                ))} */}
+            </div>
         </article>
     );
 };

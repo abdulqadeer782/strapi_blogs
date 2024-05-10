@@ -5,7 +5,7 @@ import React from 'react'
 import Tag from '../Elements/Tag';
 import { slug } from 'github-slugger';
 
-const HomeCoverSection = ({ blogs }) => {
+const HomeCoverSection = ({ blogs, translation, pathname }) => {
 
     const sortedBlogs = sortBlogs(blogs);
     const blog = sortedBlogs[0];
@@ -27,18 +27,18 @@ const HomeCoverSection = ({ blogs }) => {
                 />
 
                 <div className='w-full lg:w-3/4 p-6 sm:p-8 md:p-12  lg:p-16 flex flex-col items-start justify-center z-0 text-light'>
-                    <Tag link={`/categories/${slug(blog.tags[0])}`} name={blog.tags[0]} />
+                    <Tag link={`${pathname}/categories/${slug(blog.tags[0])}`} name={translation?.cover?.buttonText} />
                     <Link href={blog.url} className='mt-6'>
                         <h1 className='font-bold capitalize text-lg sm:text-xl md:text-3xl lg:text-4xl'>
                             <span className='bg-gradient-to-r from-accent to-accent dark:from-accentDark/50 
                 dark:to-accentDark/50 bg-[length:0px_6px]
                 hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 '>
-                                {blog.title}
+                                {translation?.cover?.title}
                             </span>
                         </h1>
                     </Link>
                     <p className='hidden  sm:inline-block mt-4 md:text-lg lg:text-xl font-in'>
-                        {blog.description}
+                        {translation?.cover?.description}
                     </p>
                 </div>
             </article>

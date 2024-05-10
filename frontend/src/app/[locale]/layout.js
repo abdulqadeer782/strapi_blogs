@@ -2,8 +2,8 @@ import "./globals.css";
 import { cx } from "@/src/utils";
 import { Inter, Manrope } from "next/font/google";
 import Header from "@/src/components/Header";
-import Footer from "../components/Footer";
-import siteMetadata from "../utils/siteMetaData";
+import Footer from "@/src/components/Footer";
+import siteMetadata from "@/src/utils/siteMetaData";
 import Script from "next/script";
 
 const inter = Inter({
@@ -53,9 +53,13 @@ export const metadata = {
     },
 };
 
-export default function RootLayout({ children }) {
+export async function generateStaticParams() {
+    return [{ locale: 'en' }, { locale: 'ur' }]
+}
+
+export default function RootLayout({ children, params }) {
     return (
-        <html lang="en">
+        <html lang={params.locale} dir={params.locale == 'ur' ? 'rtl' : 'ltr'}>
             <body
                 className={cx(
                     inter.variable,
@@ -70,7 +74,7 @@ export default function RootLayout({ children }) {
     document.documentElement.classList.remove('dark')
   }`}
                 </Script>
-                <Header />
+                <Header defaultLang={params.locale} />
                 {children}
                 <Footer />
             </body>

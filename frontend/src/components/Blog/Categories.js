@@ -1,8 +1,10 @@
 import React from "react";
 import Category from "./Category";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-const Categories = ({ categories, currentSlug }) => {
+const Categories = ({ categories, pathname }) => {
+    const router = useRouter();
 
     const { id } = useParams()
     return (
@@ -10,7 +12,7 @@ const Categories = ({ categories, currentSlug }) => {
             {categories.map((cat) => (
                 <Category
                     key={cat.id}
-                    link={`/categories/${cat.id}`}
+                    id={cat.id}
                     name={cat?.attributes?.name}
                     active={id == cat.id}
                 />
