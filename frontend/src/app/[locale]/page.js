@@ -18,7 +18,7 @@ export default function Home() {
     }, [pathname])
 
     useEffect(() => {
-        apiClient.get('articles?populate=*').then((res) => setBlogs(res.data?.data))
+        apiClient.get(`articles?locale=${pathname.split('/')[1]}&populate=*`).then((res) => setBlogs(res.data?.data))
     }, [])
 
     return (

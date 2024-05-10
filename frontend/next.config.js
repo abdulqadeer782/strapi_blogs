@@ -8,12 +8,7 @@ const nextConfig = {
     },
     reactStrictMode: true,
     images: {
-        remotePatterns: [
-            {
-                protocol: 'http', // Or 'https' depending on Strapi URL
-                hostname: 'localhost:1337',
-            },
-        ],
+        domains: ['localhost'],
     },
 
 };

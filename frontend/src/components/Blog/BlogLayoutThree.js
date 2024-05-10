@@ -4,25 +4,32 @@ import Link from "next/link";
 import React from "react";
 
 const BlogLayoutThree = ({ blog, id, pathname }) => {
+    const imageUrl = 'http://localhost:1337' + blog?.cover_image?.data?.attributes?.url;
     return (
         <div className="group flex flex-col items-center text-dark dark:text-light">
             <Link href={`${pathname}/blog/${id}`} className="h-full rounded-xl overflow-hidden">
-                {console.log('ffffffffff', blog?.cover_image?.data?.attributes?.url)}
+                {console.log('ffffffffff', 'http://localhost:1337' + imageUrl)}
                 {/* <Image
                     src={blog.attributes && `http://localhost:1337/${blog?.cover_image?.data?.attributes?.url}`}
-                    // placeholder="blur"
-                    // blurDataURL={blog.image.blurhashDataUrl}
+                    placeholder="blur"
+                    blurDataURL={blog.image.blurhashDataUrl}
                     alt={blog.title}
                     width={400}
                     height={300}
-                    // className=" aspect-[4/3] w-full h-full object-cover object-center  group-hover:scale-105 transition-all ease duration-300 "
+                    className=" aspect-[4/3] w-full h-full object-cover object-center  group-hover:scale-105 transition-all ease duration-300 "
                     sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 33vw"
                 /> */}
-                <img
-                    src={`http://localhost:1337/${blog?.cover_image?.data?.attributes?.url}`}
-                    alt={blog.title}
-                    width={400}
-                    height={300}
+                <Image
+                    src={imageUrl} // Fallback image if no URL
+                    alt={blog?.title}
+                    width={500}
+                    height={500}
+                    style={{ width: '500px', height: "300px" }}
+                // placeholder="blur"
+                // className=" aspect-[4/3] w-full h-full object-cover object-center  group-hover:scale-105 transition-all ease duration-300 "
+                // sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 33vw"
+                // blurDataURL={blog.image.blurhashDataUrl}
+                // Add other optional props like layout, priority, etc.
                 />
             </Link>
 
