@@ -829,6 +829,13 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'oneToMany',
       'api::comment.comment'
     >;
+    cover_image: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
