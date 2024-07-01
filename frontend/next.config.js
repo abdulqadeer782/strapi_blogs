@@ -3,6 +3,15 @@
 const { withContentlayer } = require("next-contentlayer")
 
 const nextConfig = {
+    async redirects() {
+        return [
+            {
+                source: '/',
+                destination: '/en',
+                permanent: true,
+            },
+        ];
+    },
     compiler: {
         removeConsole: true,
     },
